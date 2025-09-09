@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500&display=swap");
+
+.notfound-page {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.notfound-content h1 {
+  font-size: 6rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #007bff;
+  margin: 0;
+}
+
+.notfound-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.notfound-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.notfound-link:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
