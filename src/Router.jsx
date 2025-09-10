@@ -26,9 +26,9 @@ const AppRouter = () => {
                 <Route
                   path="inicio"
                   element={
-                    <PrivateRoute>
+                    //<PrivateRoute>
                       <Dashboard />
-                    </PrivateRoute>
+                    //</PrivateRoute>
                   }
                 />
               </Route>

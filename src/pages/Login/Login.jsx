@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [senha, setSenha] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -17,7 +17,7 @@ const Login = () => {
     setError("");
 
     try {
-      await login(email, password);
+      await login(email, senha);
       handleLogin();
       navigate("/inicio");
     } catch (err) {
@@ -44,9 +44,9 @@ const Login = () => {
         <div className="form-group">
           <label>Senha</label>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             required
             placeholder="Digite sua senha"
           />

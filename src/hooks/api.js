@@ -2,10 +2,10 @@ import axios from "axios";
 import { logout } from "../service/authService";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/agendamento/api",
+  baseURL: "http://192.168.207.205:8080/agendamento/api",
   timeout: 5000,
   headers: { "Content-Type": "application/json" },
-  withCredentials: false,
+  withCredentials: true,
 });
 
 api.interceptors.request.use(
