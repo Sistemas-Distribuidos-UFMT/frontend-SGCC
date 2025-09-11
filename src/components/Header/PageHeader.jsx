@@ -1,14 +1,25 @@
+import { useContext } from "react";
 import { useNavigation } from "../../hooks/useNavigation";
 import { ArrowLeft, House, User } from "phosphor-react";
 import "./navbar.css";
+import { AuthContext } from "../../hooks/authContext";
 
 export default function PageHeader() {
-  const { goToDashboard, goToLogin, goBack, isHome, isLogin } = useNavigation();
+  const { auth, handleLogout } = useContext(AuthContext);
+  const {
+    goToDashboard,
+    goToLogin,
+    goBack,
+    isHome,
+    isLogin,
+    isDashboard,
+    goToHome,
+  } = useNavigation();
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        {!isHome && (
+        {!isHome && !isDashboard && (
           <button className="nav-button back-button" onClick={goBack}>
             <ArrowLeft size={20} weight="bold" /> Voltar
           </button>
@@ -16,18 +27,27 @@ export default function PageHeader() {
       </div>
 
       <div className="navbar-center">
-        <h1 className="navbar-title">MEDICAPP</h1>
+        <h1 className="navbar-title" onClick={goToHome}>
+          MEDICAPP
+        </h1>
       </div>
 
       <div className="navbar-right">
-        {!isHome && !isLogin && (
+        {auth && !isDashboard && !isLogin && (
           <button className="nav-button" onClick={goToDashboard}>
             <House size={20} weight="bold" /> Início
           </button>
         )}
-        <button className="login-button" onClick={goToLogin}>
-          <User size={20} weight="bold" /> Login
-        </button>
+        {!auth && (
+          <button className="login-button" onClick={goToLogin}>
+            <User size={20} weight="bold" /> Login
+          </button>
+        )}
+        {auth && (
+          <button className="login-button" onClick={handleLogout}>
+            <User size={20} weight="bold" /> Sair
+          </button>
+        )}
       </div>
     </nav>
   );

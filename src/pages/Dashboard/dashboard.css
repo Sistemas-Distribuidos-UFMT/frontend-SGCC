@@ -1,7 +1,7 @@
 .dashboard-container {
   max-width: 1000px;
   margin: 40px auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding: 20px;
 }
 
@@ -22,12 +22,40 @@ ul {
   gap: 16px;
 }
 
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filtros input,
+.filtros select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  border-color: #007bff;
+}
+
+.filtros select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .card {
   background: #fff;
   border-radius: 12px;
   padding: 16px;
   flex: 1 1 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 280px;
 }
 
 .card button {

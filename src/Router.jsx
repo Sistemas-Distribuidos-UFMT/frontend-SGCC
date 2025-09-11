@@ -10,6 +10,7 @@ import AuthProvider from "./hooks/authContext";
 import "./index.css";
 import PrivateRoute from "./hooks/PrivateRoute";
 import Login from "./pages/Login/Login";
+import Agendamento from "./pages/Agendamento/Agendamento";
 
 const AppRouter = () => {
   return (
@@ -23,14 +24,10 @@ const AppRouter = () => {
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="login" element={<Login />} />
-                <Route
-                  path="inicio"
-                  element={
-                    //<PrivateRoute>
-                      <Dashboard />
-                    //</PrivateRoute>
-                  }
-                />
+                <Route element={<PrivateRoute />}>
+                  <Route path="inicio" element={<Dashboard />} />
+                  <Route path="agendar/:medicoId" element={<Agendamento />} />
+                </Route>
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

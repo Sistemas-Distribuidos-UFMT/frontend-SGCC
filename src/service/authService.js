@@ -9,10 +9,21 @@ export const login = async (email, senha) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("tipoPessoa");
-  localStorage.removeItem("nome");
+  try {
+    api.post("/auth/logout");
+    localStorage.removeItem("tipoPessoa");
+    localStorage.removeItem("nome");
+  } catch (e) {
+    console.error("Logout error:", e);
+  }
 };
 
-export const isAuthenticated = () => {
-  return !!localStorage.getItem("token");
+export const isAuthenticated = async () => {
+  try {
+    const res = await api.get("/pacientes/me");
+    console.log("logado");
+    return res.status === 200;
+  } catch {
+    return false;
+  }
 };

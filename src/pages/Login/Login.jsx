@@ -1,6 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../hooks/authContext";
+import { isAuthenticated } from "../../service/authService";
 import { login } from "../../service/authService";
 import "./login.css";
 
@@ -24,6 +25,16 @@ const Login = () => {
       setError("Usuário ou senha inválidos");
     }
   };
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      const auth = await isAuthenticated();
+      if (auth) {
+        navigate("/inicio");
+      }
+    };
+    checkAuth();
+  }, [navigate]);
 
   return (
     <div className="login-container">
